@@ -1,7 +1,11 @@
 {
-  "name": "ZACT MEDIA LIMITED",
+  "name": "ZACT Media Limited",
   "email": "hello@zactmedia.co.uk",
   "phone": "Air landline soon xoxox",
-  "domain": "www.zactmedia.co.uk"
+  "address":{
+    "city": "Leicester"
+  },
+  "domain": "www.zactmedia.co.uk",
+  "keywords": "Keyword1, Keyword2, Keyword3"
 }
 

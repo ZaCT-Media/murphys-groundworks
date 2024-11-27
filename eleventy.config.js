@@ -6,6 +6,9 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("./src/css/**/*.css");
   eleventyConfig.addPassthroughCopy("./src/assets");
+  eleventyConfig.addPassthroughCopy('./src/admin');
+  eleventyConfig.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
+  eleventyConfig.addPassthroughCopy('./src/_redirects');
 
   eleventyConfig.setBrowserSyncConfig({
     open: true,
