@@ -20,3 +20,6 @@ logo_url: https://www.zactmedia.co.uk/assets/images/logo.svg
 
 # Add site links in DecapCMS (optional)
 site_url: https://zact-starter-v1.pages.dev
+
+media_folder: "src/assets/images" # Media files will be stored in the repo under static/images/uploads
+public_folder: "public/assets/images"
