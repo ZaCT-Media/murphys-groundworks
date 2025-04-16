@@ -1,5 +1,6 @@
 {
   "name": "murphys-groundworks",
+  "pages_build_output_dir": "public",
   "vars": {
     "API_HOST": "example.com",
     "API_ACCOUNT_ID": "example_user",
