@@ -1,11 +1,40 @@
-<header>{% set navPages = collections.all | eleventyNavigation %}
-  <nav>
-    <ul>
-      {%- for entry in navPages %}
-        <li{% if entry.url == page.url %} class="active-nav-link"{% endif %}>
-          <a href="{{ entry.url }}">{{ entry.title }}</a>
-        </li>
-      {%- endfor %}
+<header>
+  {% set navPages = collections.all | eleventyNavigation %}
+  <div class="mobile-nav-banner">
+    <div class="wrapper">
+      <span>CN: 16150633</span>
+      <a href="tel:07770471896">M: 07770471896</a>
+    </div>
+  </div>
+  <nav class="nav" id="nav">
+    <a href="/"><img src="/assets/images/logo.png" alt="" class="logo" /></a>
+    <ul class="nav-links">
+      <li>
+        <a href="/" class="link-animation" onclick="closeMenu()">Home</a>
+      </li>
+      <li>
+        <a href="#about" class="link-animation" onclick="closeMenu()">About</a>
+      </li>
+      <li>
+        <a href="#testimonials" class="link-animation" onclick="closeMenu()"
+          >Our work</a
+        >
+      </li>
+      <a href="#contact" class="cta primary" onclick="closeMenu()"
+        >Contact Us</a
+      >
     </ul>
+
+    <button
+      class="hamburger-toggle"
+      onclick="toggleMenu()"
+      aria-label="Hamburger-toggle"
+    >
+      <div class="hamburger" id="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </div>
+    </button>
   </nav>
 </header>

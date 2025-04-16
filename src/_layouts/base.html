@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Swap our for actual link-->
     <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
 
     <meta name="description" content="{{ description }}">
@@ -22,11 +21,15 @@
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
 
-    <link rel="stylesheet" href="/css/root.css">
-    <link rel="stylesheet" href="/css/dark.css">
-
+    <link rel="stylesheet" href="/css/core.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+      
+    <script src="/assets/scripts/main.js"></script>
+    
+    {% if preloadImg %}
     <link rel="preload" as="image" href="{{ preloadImg }}"/>
-
+    {% endif %}
+    
     <title>
       {% if page.url == '/'%}
         {{ tagTitle }} | {{ client.name }} | {{ client.address.city }}

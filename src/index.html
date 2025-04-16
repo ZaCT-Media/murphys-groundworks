@@ -1,17 +1,186 @@
 ---
-layout: 'base.html' 
+layout: "base.html"
 description: "Meta description for the page"
-metaTitle: 'Title that shows up on social OG tags'
-tagTitle: 'Small Business Websites | £0 Upfront £25 Per Month'
-preloadImg: '/images/imageName.format'
-permalink: '/'
-eleventyNavigation:
-    key: Home
-    order: 0
+metaTitle: "Title that shows up on social OG tags"
+tagTitle: "Murphys Groundswork"
+preloadImg: "/images/imageName.format"
+permalink: "/"
 ---
 
-<section><h1>HELLLLLLL</h1></section>
+<section class="hero">
+  {% image './src/assets/images/hero-bg.jpg', 'a digger', 'hero-bg', 'eager'%}
+  <div class="wrapper">
+    <span class="eyebrow">Welcome to</span>
+    <h1>Murphy’s Groundworks LTD</h1>
+    <p class="lead-p">
+      Trusted Excellence with over 30 years of experience, we are proud to be a
+      family-run business passed down through generations.
+    </p>
+    <div class="two-cta">
+      <a href="#contact" class="cta primary">Contact Us</a>
+      <a href="#about" class="cta">About Us</a>
+    </div>
+  </div>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1000 100"
+    preserveAspectRatio="none"
+    class="page-break top"
+  >
+    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+  </svg>
+</section>
 
-<form action="/varsTest" method="GET">
-  <button type="submit">Call Function</button>
-</form>
+<section class="about" id="about">
+  <div class="wrapper">
+    <div class="top">
+      <h2>About Us</h2>
+      <p>
+        From digging footings and laying the groundwork to completing full
+        extensions and building brand new homes, we bring expertise,
+        reliability, and attention to detail to every project. Our commitment to
+        quality workmanship and client satisfaction is at the heart of
+        everything we do. No job is too big or small – we approach each one with
+        the same level of care and precision.
+      </p>
+    </div>
+    <div class="bottom">
+      <h3>We deliver a comprehensive range of services</h3>
+
+      <div class="grid">
+        <div class="grid-item">
+          <div>
+            <h4>Civil Engineering</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequatur, sapiente officia? Consectetur officiis ut amet modi
+              distinctio molestiae qui dicta, ducimus ad in saepe, dolor fugiat
+              ex excepturi repellendus vel.
+            </p>
+          </div>
+          <a href="#contact" class="cta primary">Contact Us</a>
+        </div>
+        <div class="grid-item">
+          <div>
+            <h4>Landscaping</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequatur, sapiente officia? Consectetur officiis ut amet modi
+              distinctio molestiae qui dicta, ducimus ad in saepe, dolor fugiat
+              ex excepturi repellendus vel.
+            </p>
+          </div>
+          <a href="#contact" class="cta primary">Contact Us</a>
+        </div>
+        <div class="grid-item">
+          <div>
+            <h4>Machine Hire</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequatur, sapiente officia? Consectetur officiis ut amet modi
+              distinctio molestiae qui dicta, ducimus ad in saepe, dolor fugiat
+              ex excepturi repellendus vel.
+            </p>
+          </div>
+          <a href="#contact" class="cta primary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1000 100"
+  preserveAspectRatio="none"
+  class="page-break bottom"
+>
+  <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+</svg>
+<section class="testimonials" id="testimonials">
+  <div class="wrapper">
+    <div>
+      <h2>Our Work</h2>
+      <p>
+        At Murphy’s Groundwork Ltd, our clients are our top priority. We take
+        the time to understand your needs and ensure each project is completed
+        to the highest standards.
+      </p>
+    </div>
+    {% image './src/assets/images/digger.avif', 'a digger', '', 'lazy'%}
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrapper">
+    <div class="top">
+      <h2>Contact Us</h2>
+      <p>
+        If you're looking for professional, dependable services and would like a
+        free, no-obligation quote, simply leave your details in the form below.
+        A member of our friendly team will be in touch to discuss how we can
+        help bring your project to life.
+      </p>
+    </div>
+    <div class="two-column">
+      <div>
+        <h3>Contact Details</h3>
+        <ul>
+          <li>
+            E:
+            <a href="mailto:{{client.email}}" class="text-link"
+              >{{client.email}}</a
+            >
+          </li>
+          <li>
+            M:
+            <a href="tel:{{client.phone}}" class="text-link"
+              >{{client.phone}}</a
+            >
+          </li>
+          <li><span>Company number: 16150633</span></li>
+        </ul>
+      </div>
+      <form>
+        <label for="name">
+          <span>Name</span>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="John Smith"
+            required
+          />
+        </label>
+        <label for="phone">
+          <span>Phone</span>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="01234 567 890"
+            required
+          />
+        </label>
+        <label for="email">
+          <span>Email</span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="john@example.com"
+            required
+          />
+        </label>
+        <label for="message">
+          <span>Message</span>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Message..."
+          ></textarea>
+        </label>
+        <button class="cta primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
