@@ -1,0 +1,97 @@
+<section class="contact" id="contact">
+  <div class="wrapper">
+    <div class="top">
+      <h2>Contact Us</h2>
+      <p>
+        If you're looking for professional, dependable services and would like a
+        free, no-obligation quote, simply leave your details in the form below.
+        A member of our friendly team will be in touch to discuss how we can
+        help bring your project to life.
+      </p>
+    </div>
+    <div class="two-column">
+      <div>
+        <h3>Contact Details</h3>
+        <ul>
+          <li>
+            E:
+            <a href="mailto:{{client.email}}" class="text-link"
+              >{{client.email}}</a
+            >
+          </li>
+          <li>
+            M:
+            <a href="tel:{{client.phone}}" class="text-link"
+              >{{client.phone}}</a
+            >
+          </li>
+          <li><span>Company number: 16150633</span></li>
+        </ul>
+      </div>
+      <form id="contact-form">
+        <label for="name">
+          <span>Name</span>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="John Smith"
+            required
+          />
+        </label>
+        <label for="phone">
+          <span>Phone</span>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="01234 567 890"
+            required
+          />
+        </label>
+        <label for="email">
+          <span>Email</span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="john@example.com"
+            required
+          />
+        </label>
+        <label for="message">
+          <span>Message</span>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Message..."
+          ></textarea>
+        </label>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABeKUmBu9g-ch-gV"></div>
+        <p id="responseMessage" class="responseMessage"></p>
+        <button class="cta primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const widgetContainer = document.querySelector(".cf-turnstile");
+        const widgetId = widgetContainer.getAttribute("data-widget-id");
+        const formData = new FormData(e.target);
+        const response = await fetch("/submit-form", {
+          method: "POST",
+          body: JSON.stringify(Object.fromEntries(formData)),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const result = await response.json();
+        document.getElementById("responseMessage").style.display = "block";
+        document.getElementById("responseMessage").textContent = result.message;
+        turnstile.reset(widgetId);
+      });
+  </script>
+</section>

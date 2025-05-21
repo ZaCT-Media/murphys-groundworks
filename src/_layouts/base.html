@@ -38,6 +38,11 @@
     <meta name="apple-mobile-web-app-title" content="MyWebSite" />
     <link rel="manifest" href="/assets/favicons/site.webmanifest" />
     
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      defer
+    ></script>
+    
     <title>
       {% if page.url == '/'%}
         {{ tagTitle }} | {{ client.name }} | {{ client.address.city }}

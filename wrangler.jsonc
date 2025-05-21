@@ -2,5 +2,14 @@
   "name": "murphys-groundworks",
   "compatibility_date": "2025-04-16",
   "pages_build_output_dir": "public",
-  "vars": {}
+  "vars": {
+    "MAILGUN_DOMAIN":"coletaylor.net"
+    
+  },
+  "kv_namespaces": [
+      {
+        "binding": "MURPHYS_SUBMISSIONS",
+        "id": "4c7a3c5179284d15ace7aa4a149dd7b5"
+      }
+    ]
 }
