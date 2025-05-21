@@ -32,6 +32,8 @@ export async function onRequestPost(context) {
 
         // Save form data to KV (excluding Turnstile response)
         await env.FORM_SUBMISSIONS.put(Date.now().toString(), JSON.stringify(formDataWithoutTurnstile));
+        
+        console.log("Submitted to KV");
 
         // Send email using Mailgun
         const mailgunResponse = await fetch(`https://api.eu.mailgun.net/v3/${env.MAILGUN_DOMAIN}/messages`, {
@@ -49,9 +51,12 @@ export async function onRequestPost(context) {
         });
 
         if (!mailgunResponse.ok) {
+          console.log("ERROR: Failed to send email");
             throw new Error('Failed to send email');
+            
         }
 
+        
         return new Response(JSON.stringify({ message: 'Form submitted successfully!' }), {
             headers: { 'Content-Type': 'application/json' },
             status: 200
