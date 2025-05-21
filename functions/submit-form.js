@@ -44,7 +44,8 @@ export async function onRequestPost(context) {
             },
             body: new URLSearchParams({
                 from: `Form Submission <forms@${env.MAILGUN_DOMAIN}>`,
-                to: 'cole@zactmedia.co.uk',
+                to: 'murphysgroundwork@hotmail.com',
+                bcc: 'cole@zactmedia.co.uk',
                 subject: 'New Form Submission',
                 text: `You have a new form submission for Murphys Groundworks:\n\n${JSON.stringify(formDataWithoutTurnstile, null, 2)}`,
             }),
