@@ -78,20 +78,38 @@
       .getElementById("contact-form")
       .addEventListener("submit", async (e) => {
         e.preventDefault();
-        const widgetContainer = document.querySelector(".cf-turnstile");
-        const widgetId = widgetContainer.getAttribute("data-widget-id");
-        const formData = new FormData(e.target);
-        const response = await fetch("/submit-form", {
-          method: "POST",
-          body: JSON.stringify(Object.fromEntries(formData)),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const result = await response.json();
-        document.getElementById("responseMessage").style.display = "block";
-        document.getElementById("responseMessage").textContent = result.message;
-        turnstile.reset(widgetId);
+
+        const form = e.target;
+        const button = form.querySelector("button");
+        button.disabled = true;
+        button.textContent = "Sending...";
+
+        try {
+          const widgetContainer = document.querySelector(".cf-turnstile");
+          const widgetId = widgetContainer.getAttribute("data-widget-id");
+
+          const formData = new FormData(form);
+          const response = await fetch("/submit-form", {
+            method: "POST",
+            body: JSON.stringify(Object.fromEntries(formData)),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+
+          const result = await response.json();
+          document.getElementById("responseMessage").style.display = "block";
+          document.getElementById("responseMessage").textContent =
+            result.message;
+          turnstile.reset(widgetId);
+        } catch (err) {
+          document.getElementById("responseMessage").textContent =
+            "An error occurred.";
+        } finally {
+          // Re-enable the button if you want users to try again
+          button.disabled = false;
+          button.textContent = "Send Message";
+        }
       });
   </script>
 </section>
