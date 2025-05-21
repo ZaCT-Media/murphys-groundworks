@@ -8,7 +8,7 @@
   },
   "kv_namespaces": [
       {
-        "binding": "MURPHYS_SUBMISSIONS",
+        "binding": "FORM_SUBMISSIONS",
         "id": "4c7a3c5179284d15ace7aa4a149dd7b5"
       }
     ]
